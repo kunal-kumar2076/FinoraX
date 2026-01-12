@@ -4,7 +4,7 @@ import {io} from "socket.io-client";
 
 // connect to backend server
 
-const socket = io("http://localhost:3002");
+const socket = io("https://finorax-backend.onrender.com");
 
 function LiveStock({symbol}) {
 
