@@ -3,18 +3,14 @@ require("dotenv").config();
 
 
 const mongoose = require("mongoose");
+const PORT = process.env.PORT || 3002;
+const uri = process.env.MONGO_URL;
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const bcrypt = require("bcrypt");
 const axios = require("axios");
 
-main().then((res)=>{
-    console.log("connected to database");
-}).catch(err => console.log("err"));
-
-async function main() {
-    await mongoose.connect('mongodb://127.0.0.1:27017/FinoraX');
-}
+mongoose.connect(uri);
 
 const {HoldingSchema, HoldingModel} = require('./model/HoldingModel');
 const { PositionModel } = require("./model/PositionModel");
