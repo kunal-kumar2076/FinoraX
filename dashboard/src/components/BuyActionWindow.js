@@ -6,6 +6,8 @@ import "./BuyActionWindow.css";
 import { useState } from 'react';
 import axios from 'axios';
 
+const API_URL = "https://finorax-backend-b650.onrender.com";
+
 const BuyActionWindow = ({ uid }) => {
     const { closeBuyWindow } = useContext(GeneralContext);
 
@@ -13,7 +15,7 @@ const BuyActionWindow = ({ uid }) => {
     const [stockPrice,setStockPrice] = useState(0.0);
 
     const handleBuyClick = () => {
-        axios.post("https://finorax-backend-b650.onrender.com",{
+        axios.post(`${API_URL}/newOrder`,{
             name : uid,
             qty : stockQuantity,
             price : stockPrice,
