@@ -49,7 +49,7 @@ function Login() {
       } else {
         setMessage(data.message || 'Login successful!');
 
-        window.location.href = "http://localhost:3001/";
+        window.location.href = "https://finorax.onrender.com/";
       }
     } catch(err) {
       console.error("Login Error",err);
