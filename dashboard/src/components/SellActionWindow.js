@@ -6,6 +6,8 @@ import axios from "axios";
 
 import GeneralContext from "./GeneralContext";
 
+const API_URL = "https://finorax-backend-b650.onrender.com";
+
 const SellActionWindow = ({ uid }) => {
   const { closeSellWindow } = useContext(GeneralContext);
 
@@ -13,7 +15,7 @@ const SellActionWindow = ({ uid }) => {
   const [stockPrice, setStockPrice] = useState(0);
 
   const handleSellClick = () => {
-    axios.post('https://finorax-backend-b650.onrender.com',{
+    axios.post(`${API_URL}/newOrder`,{
         name : uid,
         qty : stockQuantity,
         price : stockPrice,
