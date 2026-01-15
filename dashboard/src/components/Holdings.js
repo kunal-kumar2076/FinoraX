@@ -119,8 +119,12 @@ import { VerticalGraph } from "./VerticalGraph";
 import axios from "axios";
 import { io } from "socket.io-client";
 
+const API_URL = "https://finorax-backend-b650.onrender.com";
+
 // Connect to backend Socket.IO
-const socket = io("http://localhost:3002");
+const socket = io(API_URL, {
+  transports: ["websocket"],
+});
 
 // Map stock names to Finnhub symbols
 const symbolMap = {
@@ -149,7 +153,7 @@ const Holdings = () => {
   useEffect(() => {
     let isMounted = true;
 
-    axios.get("https://finorax-backend-b650.onrender.com").then((res) => {
+    axios.get(`${API_URL}/allHoldings`).then((res) => {
       if (!isMounted) return;
 
       setAllHoldings(res.data);
