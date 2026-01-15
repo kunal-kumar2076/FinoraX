@@ -13,7 +13,7 @@ const SellActionWindow = ({ uid }) => {
   const [stockPrice, setStockPrice] = useState(0);
 
   const handleSellClick = () => {
-    axios.post('https://finorax-backend.onrender.com',{
+    axios.post('http://localhost:3002/sellOrder',{
         name : uid,
         qty : stockQuantity,
         price : stockPrice,
