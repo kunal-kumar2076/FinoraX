@@ -149,7 +149,7 @@ const Holdings = () => {
   useEffect(() => {
     let isMounted = true;
 
-    axios.get("http://localhost:3002/allHoldings").then((res) => {
+    axios.get("https://finorax-backend-b650.onrender.com").then((res) => {
       if (!isMounted) return;
 
       setAllHoldings(res.data);
