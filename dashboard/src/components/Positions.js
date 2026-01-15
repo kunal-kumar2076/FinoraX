@@ -3,12 +3,14 @@ import React , {useState,useEffect} from 'react';
 import { positions } from '../data/data';
 import axios from 'axios';
 
+const API_URL = "https://finorax-backend-b650.onrender.com";
+
 const Positions = () => {
 
   const [allPositions,setAllPositions] = useState([]);
 
   useEffect(()=>{
-    axios.get('https://finorax-backend-b650.onrender.com').then((res)=>{
+    axios.get(`${API_URL}/allPositions`).then((res)=>{
       console.log(res.data);
       setAllPositions(res.data);
     });
