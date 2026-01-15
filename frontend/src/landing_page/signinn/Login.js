@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './Login.css'; // Import the dedicated CSS file
 import { useNavigate } from 'react-router-dom';
+const API_URL = "https://finorax-backend-b650.onrender.com"
 
 function Login() {
 
@@ -33,7 +34,7 @@ function Login() {
       setIsLoading(true);
 
       try{
-      const response = await fetch("http://localhost:3002/login",{
+      const response = await fetch(`${API_URL}/login`,{
         method: 'POST',
         headers: {
           'Content-Type' : 'application/json',
